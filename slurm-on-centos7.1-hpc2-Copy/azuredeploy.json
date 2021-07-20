@@ -24,11 +24,9 @@
       },
       "image":{
          "type":"string",
-         "defaultValue":"OpenLogic:CentOS-HPC:7.3",
+         "defaultValue":"OpenLogic:CentOS:7.3",
          "allowedValues":[
-            "OpenLogic:CentOS-HPC:7.1",
             "OpenLogic:CentOS-HPC:7.3",
-            "OpenLogic:CentOS:7.1",
             "OpenLogic:CentOS:7.3"
          ],
          "metadata":{
@@ -37,8 +35,9 @@
       },
       "headNodeSize":{
          "type":"string",
-         "defaultValue":"Standard_A4",
+         "defaultValue":"Standard_A2_v2",
          "allowedValues":[
+            "Standard_A2_v2",
             "Standard_A4",
             "Standard_A7",
             "Standard_A8",
@@ -94,9 +93,9 @@
       },
       "workerNodeSize":{
          "type":"string",
-         "defaultValue":"Standard_A2",
+         "defaultValue":"Standard_A2_v2",
          "allowedValues":[
-            "Standard_A1",
+            "Standard_A2_v2",
             "Standard_A2",
             "Standard_A3",
             "Standard_A4",
