@@ -6,20 +6,20 @@
          "type":"string",
          "defaultValue":"azureuser",
          "metadata":{
-            "description":"User name for the Virtual Machine. Pick a valid username otherwise there will be a BadRequest error."
+            "description":"The user name for administrator of the master node."
          }
       },
       "adminPassword":{
          "type":"securestring",
          "metadata":{
-            "description":"Admin password. Pick a complex password with uppercase letters, lowercase letters, digits, and symbols. The password should not be longer than 16. Otherwise you'll get a BadRequest error."
+            "description":"The password for the administrator. Pick a complex password with uppercase letters, lowercase letters, digits, and symbols. The password cannot be longer than 16 characters."
          }
       },
       "hpcUserName":{
          "type":"string",
          "defaultValue":"hpc",
          "metadata":{
-            "description":"User for running HPC applications with shared home directory and SSH public key authentication setup.  This user cannot login from outside the cluster. Pick a valid username otherwise there will be a BadRequest error."
+            "description":"The user name for running HPC applications with a shared home directory and SSH public key authentication setup.  This user cannot log in from outside the cluster."
          }
       },
       "image":{
@@ -30,7 +30,7 @@
             "OpenLogic:CentOS:7.3"
          ],
          "metadata":{
-            "description":"The OS image offer to use, either HPC with Intel MPI or the vanilla CentOS version."
+            "description":"The operating system image to use. Select the HPC version if you need to run MPI jobs."
          }
       },
       "headNodeSize":{
@@ -38,25 +38,11 @@
          "defaultValue":"Standard_A2_v2",
          "allowedValues":[
             "Standard_A2_v2",
-            "Standard_A4",
-            "Standard_A7",
-            "Standard_A8",
-            "Standard_A9",
-            "Standard_A10",
-            "Standard_A11",
-            "Standard_D4",
-            "Standard_D13",
-            "Standard_D14",
-            "Standard_DS4",
-            "Standard_DS13",
-            "Standard_DS14",
-            "Standard_D4_v2",
-            "Standard_D5_v2",
-            "Standard_D11_v2",
-            "Standard_D12_v2",
-            "Standard_D13_v2",
-            "Standard_D14_v2",
-            "Standard_D15_v2",
+            "Standard_A4_v2",
+            "Standard_A8_v2",
+            "Standard_A2m_v2",
+            "Standard_A4m_v2",
+            "Standard_A8m_v2",
             "Standard_DS1_v2",
             "Standard_DS2_v2",
             "Standard_DS3_v2",
@@ -67,28 +53,63 @@
             "Standard_DS13_v2",
             "Standard_DS14_v2",
             "Standard_DS15_v2",
-            "Standard_F4",
-            "Standard_F8",
-            "Standard_F16",
-            "Standard_G3",
-            "Standard_G4",
-            "Standard_G5",
-            "Standard_GS3",
-            "Standard_GS4",
-            "Standard_GS5",
+            "Standard_D2s_v3",
+            "Standard_D4s_v3",
+            "Standard_D8s_v3",
+            "Standard_D16s_v3",
+            "Standard_D32s_v3",
+            "Standard_D48s_v3",
+            "Standard_D64s_v3",
+            "Standard_D2s_v4",
+            "Standard_D4s_v4",
+            "Standard_D8s_v4",
+            "Standard_D16s_v4",
+            "Standard_D32s_v4",
+            "Standard_D48s_v4",
+            "Standard_D64s_v4",
+            "Standard_E2s_v3",
+            "Standard_E4s_v3",
+            "Standard_E8s_v3",
+            "Standard_E16s_v3",
+            "Standard_E20s_v3",
+            "Standard_E32s_v3",
+            "Standard_E48s_v3",
+            "Standard_E64s_v3",
+            "Standard_E64is_v3",
+            "Standard_E2s_v4",
+            "Standard_E4s_v4",
+            "Standard_E8s_v4",
+            "Standard_E16s_v4",
+            "Standard_E20s_v4",
+            "Standard_E32s_v4",
+            "Standard_E48s_v4",
+            "Standard_E64s_v4",
+            "Standard_E80is_v4",
+            "Standard_F2s_v2",
+            "Standard_F4s_v2",
+            "Standard_F8s_v2",
+            "Standard_F16s_v2",
+            "Standard_F32s_v2",
+            "Standard_F48s_v2",
+            "Standard_F64s_v2",
+            "Standard_F72s_v2",
             "Standard_H8",
             "Standard_H16",
             "Standard_H8m",
             "Standard_H16m",
             "Standard_H16mr",
             "Standard_H16r",
-            "Standard_L4",
-            "Standard_L8",
-            "Standard_L16",
-            "Standard_L32"
+            "Standard_HB60rs",
+            "Standard_HB120rs_v2",
+            "Standard_HB120-16rs_v3",
+            "Standard_HB120-32rs_v3",
+            "Standard_HB120-64rs_v3",
+            "Standard_HB120-96rs_v3",
+            "Standard_HB120rs_v3",
+            "Standard_HC44rs"
          ],
          "metadata":{
-            "description":"Size of the head node."
+            "description":"Size of the master node. You must select an H-series size if you selected an HPC operating system image."
          }
       },
       "workerNodeSize":{
@@ -96,46 +117,11 @@
          "defaultValue":"Standard_A2_v2",
          "allowedValues":[
             "Standard_A2_v2",
-            "Standard_A2",
-            "Standard_A3",
-            "Standard_A4",
-            "Standard_A5",
-            "Standard_A6",
-            "Standard_A7",
-            "Standard_A8",
-            "Standard_A9",
-            "Standard_A10",
-            "Standard_A11",
-            "Standard_D1",
-            "Standard_D2",
-            "Standard_D3",
-            "Standard_D4",
-            "Standard_D11",
-            "Standard_D12",
-            "Standard_D13",
-            "Standard_D14",
-            "Standard_DS1",
-            "Standard_DS2",
-            "Standard_DS3",
-            "Standard_DS4",
-            "Standard_D11",
-            "Standard_D12",
-            "Standard_D13",
-            "Standard_D14",
-            "Standard_DS11",
-            "Standard_DS12",
-            "Standard_DS13",
-            "Standard_DS14",
-            "Standard_D1_v2",
-            "Standard_D2_v2",
-            "Standard_D3_v2",
-            "Standard_D4_v2",
-            "Standard_D5_v2",
-            "Standard_D11_v2",
-            "Standard_D12_v2",
-            "Standard_D13_v2",
-            "Standard_D14_v2",
-            "Standard_D15_v2",
+            "Standard_A4_v2",
+            "Standard_A8_v2",
+            "Standard_A2m_v2",
+            "Standard_A4m_v2",
+            "Standard_A8m_v2",
             "Standard_DS1_v2",
             "Standard_DS2_v2",
             "Standard_DS3_v2",
@@ -146,41 +132,70 @@
             "Standard_DS13_v2",
             "Standard_DS14_v2",
             "Standard_DS15_v2",
-            "Standard_F1",
-            "Standard_F2",
-            "Standard_F4",
-            "Standard_F8",
-            "Standard_F16",
-            "Standard_G1",
-            "Standard_G2",
-            "Standard_G3",
-            "Standard_G4",
-            "Standard_G5",
-            "Standard_GS1",
-            "Standard_GS2",
-            "Standard_GS3",
-            "Standard_GS4",
-            "Standard_GS5",
+            "Standard_D2s_v3",
+            "Standard_D4s_v3",
+            "Standard_D8s_v3",
+            "Standard_D16s_v3",
+            "Standard_D32s_v3",
+            "Standard_D48s_v3",
+            "Standard_D64s_v3",
+            "Standard_D2s_v4",
+            "Standard_D4s_v4",
+            "Standard_D8s_v4",
+            "Standard_D16s_v4",
+            "Standard_D32s_v4",
+            "Standard_D48s_v4",
+            "Standard_D64s_v4",
+            "Standard_E2s_v3",
+            "Standard_E4s_v3",
+            "Standard_E8s_v3",
+            "Standard_E16s_v3",
+            "Standard_E20s_v3",
+            "Standard_E32s_v3",
+            "Standard_E48s_v3",
+            "Standard_E64s_v3",
+            "Standard_E64is_v3",
+            "Standard_E2s_v4",
+            "Standard_E4s_v4",
+            "Standard_E8s_v4",
+            "Standard_E16s_v4",
+            "Standard_E20s_v4",
+            "Standard_E32s_v4",
+            "Standard_E48s_v4",
+            "Standard_E64s_v4",
+            "Standard_E80is_v4",
+            "Standard_F2s_v2",
+            "Standard_F4s_v2",
+            "Standard_F8s_v2",
+            "Standard_F16s_v2",
+            "Standard_F32s_v2",
+            "Standard_F48s_v2",
+            "Standard_F64s_v2",
+            "Standard_F72s_v2",
             "Standard_H8",
             "Standard_H16",
             "Standard_H8m",
             "Standard_H16m",
             "Standard_H16mr",
             "Standard_H16r",
-            "Standard_L4",
-            "Standard_L8",
-            "Standard_L16",
-            "Standard_L32"
+            "Standard_HB60rs",
+            "Standard_HB120rs_v2",
+            "Standard_HB120-16rs_v3",
+            "Standard_HB120-32rs_v3",
+            "Standard_HB120-64rs_v3",
+            "Standard_HB120-96rs_v3",
+            "Standard_HB120rs_v3",
+            "Standard_HC44rs"
          ],
          "metadata":{
-            "description":"Size of the worker nodes."
+            "description":"Size of the worker nodes. You must select an H-series size if you selected an HPC operating system image."
          }
       },
       "workerNodeCount":{
          "type":"int",
          "defaultValue":2,
          "metadata":{
-            "description":"This template creates N worker node. Use workerNodeCount to specify that N."
+            "description":"The number of worker nodes in the cluster, in addition to the master node."
          }
       },
       "dataDiskSize":{
@@ -196,7 +211,7 @@
             4095
          ],
          "metadata":{
-            "description":"The size in GB of each data disk that is attached to the VM.  A RAID-0 volume is created with all data disks that is dataDiskSize * dataDiskCount in size."
+            "description":"The size in GB of each data disk that is attached to each one of the cluster nodes. A RAID-0 volume will be created using 2 disks on each node and then that volume will be added to BeeGFS."
          }
       },
       "storageAccountType":{
@@ -207,7 +222,7 @@
             "Premium_LRS"
          ],
          "metadata":{
-            "description":"Type of storage account to create for disks."
+            "description":"The type of storage account to use for disks. Select Premium for better performance, but higher costs to run."
          }
       },
       "clusterFilesystemLocation":{
@@ -218,7 +233,7 @@
             "/mnt/resource/storage"
          ],
          "metadata":{
-            "description":"Path to use for BeeGFS storage."
+            "description":"Local path on each node where the BeeGFS storage file system will be mounted."
          }
       }
    },
