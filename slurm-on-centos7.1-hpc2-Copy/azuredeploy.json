@@ -271,7 +271,7 @@
       },
       "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',variables('networkSettings').virtualNetworkName)]",
       "subnetRef":"[concat(variables('vnetID'),'/subnets/',variables('networkSettings').subnet.dse.name)]",
-      "templateBaseUrl":"https://github.com/fayora/hpc/tree/master/slurm-on-centos7.1-hpc2-Copy",
+      "templateBaseUrl":"https://raw.githubusercontent.com/fayora/hpc/master/slurm-on-centos7.1-hpc2-Copy/",
       "installationCLI":"[concat('bash azuredeploy.sh ', variables('masterVMName'), ' ', variables('workerVMName'), ' ', parameters('workerNodeCount'), ' ', parameters('hpcUserName'), ' ', variables('templateBaseUrl'), ' ', parameters('clusterFilesystemLocation'), ' ', variables('imageOffer'))]"
    },
    "resources":[
